@@ -1,7 +1,6 @@
-﻿
-namespace Phone_Book;
+﻿namespace Phone_Book.Controllers;
 
-internal class RecordController
+internal class ContactController
 {
     internal static void AddContact()
     {

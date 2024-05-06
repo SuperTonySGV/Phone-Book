@@ -1,4 +1,4 @@
-﻿using Phone_Book;
+﻿using Phone_Book.Controllers;
 using Spectre.Console;
 
 
@@ -19,19 +19,19 @@ while (isAppRunning)
     switch(option)
     {
         case MenuOptions.AddContact:
-            RecordController.AddContact();
+            ContactController.AddContact();
             break;
         case MenuOptions.DeleteContact:
-            RecordController.DeleteContact();
+            ContactController.DeleteContact();
             break;
         case MenuOptions.UpdateContact:
-            RecordController.UpdateContact();
+            ContactController.UpdateContact();
             break;
         case MenuOptions.ViewContact:
-            RecordController.GetContactById();
+            ContactController.GetContactById();
             break;
         case MenuOptions.ViewAllContacts:
-            RecordController.GetContacts();
+            ContactController.GetContacts();
             break;
         case MenuOptions.Quit:
             isAppRunning = false;
