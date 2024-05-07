@@ -11,7 +11,7 @@ namespace Phone_Book.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Records",
+                name: "Contacts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -22,7 +22,7 @@ namespace Phone_Book.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Records", x => x.Id);
+                    table.PrimaryKey("PK_Contacts", x => x.Id);
                 });
         }
 
@@ -30,7 +30,7 @@ namespace Phone_Book.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Records");
+                name: "Contacts");
         }
     }
 }

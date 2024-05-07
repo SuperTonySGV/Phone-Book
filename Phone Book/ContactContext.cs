@@ -10,5 +10,5 @@ internal class ContactContext : DbContext
         string connectionString = "Data Source=MOTHERSHIP-XR7\\SQLEXPRESS;Initial Catalog=contacts;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         optionsBuilder.UseSqlServer(connectionString);
     }
-    public DbSet<Contact> Records {  get; set; }
+    public DbSet<Contact> Contacts {  get; set; }
 }

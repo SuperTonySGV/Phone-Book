@@ -43,7 +43,7 @@ namespace Phone_Book.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Records");
+                    b.ToTable("Contacts");
                 });
 #pragma warning restore 612, 618
         }

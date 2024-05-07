@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Phone Book": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\VSApps\\Phone Book\\Phone Book"
+    }
+  }
+}

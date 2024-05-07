@@ -11,7 +11,7 @@ using Phone_Book;
 namespace Phone_Book.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20240506223433_InitialCreate")]
+    [Migration("20240507151902_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -46,7 +46,7 @@ namespace Phone_Book.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Records");
+                    b.ToTable("Contacts");
                 });
 #pragma warning restore 612, 618
         }
