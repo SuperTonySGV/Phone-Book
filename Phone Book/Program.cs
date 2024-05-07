@@ -1,5 +1,6 @@
 ﻿using Phone_Book;
 using Phone_Book.Controllers;
+using Phone_Book.Services;
 using Spectre.Console;
 
 
@@ -20,7 +21,10 @@ while (isAppRunning)
     switch(option)
     {
         case MenuOptions.AddContact:
-            ContactController.AddContact();
+            var name = AnsiConsole.Ask<string>("Contact name:");
+            var email = AnsiConsole.Ask<string>("Email:");
+            var phoneNumber = AnsiConsole.Ask<string>("Phone number:");
+            ContactController.AddContact(name, email, phoneNumber);
             break;
         case MenuOptions.DeleteContact:
             ContactController.DeleteContact();
@@ -29,7 +33,8 @@ while (isAppRunning)
             ContactController.UpdateContact();
             break;
         case MenuOptions.ViewContact:
-            ContactController.GetContactById();
+            var contact = ContactService.GetContactOptionInput();
+            UserInterface.ShowContact(contact);
             break;
         case MenuOptions.ViewAllContacts:
             var contacts = ContactController.GetContacts();

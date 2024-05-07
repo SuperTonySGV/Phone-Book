@@ -5,11 +5,8 @@ namespace Phone_Book.Controllers;
 
 internal class ContactController
 {
-    internal static void AddContact()
+    internal static void AddContact(string name, string email, string phoneNumber)
     {
-        var name = AnsiConsole.Ask<string>("Contact name:");
-        var email = AnsiConsole.Ask<string>("Email:");
-        var phoneNumber = AnsiConsole.Ask<string>("Phone number:");
         using var db = new ContactContext();
         db.Add(new Contact { Name = name, Email = email, PhoneNumber = phoneNumber });
         db.SaveChanges();
@@ -20,9 +17,12 @@ internal class ContactController
         throw new NotImplementedException();
     }
 
-    internal static void GetContactById()
+    internal static Contact GetContactById(int id)
     {
-        throw new NotImplementedException();
+        using var db = new ContactContext();
+        var contact = db.Contacts.SingleOrDefault(x => x.Id == id);
+
+        return contact;
     }
 
     internal static List<Contact> GetContacts()

@@ -24,4 +24,17 @@ static internal class UserInterface
         Console.ReadLine();
         Console.Clear();
     }
+
+    internal static void ShowContact(Contact contact)
+    {
+        var panel = new Panel($@"Id: {contact.Id} Name: {contact.Name}");
+        panel.Header = new PanelHeader("Contact Information");
+        panel.Padding = new Padding(2, 2, 2, 2);
+
+        AnsiConsole.Write(panel);
+
+        Console.WriteLine("Press any key to continue");
+        Console.ReadLine();
+        Console.Clear();
+    }
 }
