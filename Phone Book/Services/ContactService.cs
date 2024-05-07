@@ -6,7 +6,32 @@ namespace Phone_Book.Services;
 
 internal class ContactService
 {
-    static internal Contact GetContactOptionInput()
+    internal static void InsertContact()
+    {
+        var name = AnsiConsole.Ask<string>("Contact name:");
+        var email = AnsiConsole.Ask<string>("Email:");
+        var phoneNumber = AnsiConsole.Ask<string>("Phone number:");
+        ContactController.AddContact(name, email, phoneNumber);
+    }
+
+    internal static void GetContact()
+    {
+        var contact = GetContactOptionInput();
+        UserInterface.ShowContact(contact);
+    }
+
+    internal static void GetContacts()
+    {
+        var contacts = ContactController.GetContacts();
+        UserInterface.ShowContactsTable(contacts);
+    }
+
+    internal static void DeleteContact()
+    {
+        var contact = GetContactOptionInput();
+        ContactController.DeleteContact(contact);
+    }
+    private static Contact GetContactOptionInput()
     {
         var contacts = ContactController.GetContacts();
         var contactsArray = contacts.Select(x => x.Name).ToArray();

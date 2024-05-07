@@ -21,24 +21,19 @@ while (isAppRunning)
     switch(option)
     {
         case MenuOptions.AddContact:
-            var name = AnsiConsole.Ask<string>("Contact name:");
-            var email = AnsiConsole.Ask<string>("Email:");
-            var phoneNumber = AnsiConsole.Ask<string>("Phone number:");
-            ContactController.AddContact(name, email, phoneNumber);
+            ContactService.InsertContact();
             break;
         case MenuOptions.DeleteContact:
-            ContactController.DeleteContact();
+            ContactService.DeleteContact();
             break;
         case MenuOptions.UpdateContact:
             ContactController.UpdateContact();
             break;
         case MenuOptions.ViewContact:
-            var contact = ContactService.GetContactOptionInput();
-            UserInterface.ShowContact(contact);
+            ContactService.GetContact();
             break;
         case MenuOptions.ViewAllContacts:
-            var contacts = ContactController.GetContacts();
-            UserInterface.ShowContactsTable(contacts);
+            ContactService.GetContacts();
             break;
         case MenuOptions.Quit:
             isAppRunning = false;
