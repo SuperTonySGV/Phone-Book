@@ -14,6 +14,13 @@ internal class ContactService
         ContactController.AddContact(name, email, phoneNumber);
     }
 
+    internal static void UpdateContact()
+    {
+        var contact = GetContactOptionInput();
+        contact.Name = AnsiConsole.Ask<string>("Contact name:");
+        ContactController.UpdateContact(contact);
+    }
+
     internal static void GetContact()
     {
         var contact = GetContactOptionInput();

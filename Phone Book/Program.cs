@@ -27,7 +27,7 @@ while (isAppRunning)
             ContactService.DeleteContact();
             break;
         case MenuOptions.UpdateContact:
-            ContactController.UpdateContact();
+            ContactService.UpdateContact();
             break;
         case MenuOptions.ViewContact:
             ContactService.GetContact();
