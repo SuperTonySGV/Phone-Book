@@ -1,4 +1,5 @@
-﻿using Phone_Book.Controllers;
+﻿using Phone_Book;
+using Phone_Book.Controllers;
 using Spectre.Console;
 
 
@@ -31,7 +32,8 @@ while (isAppRunning)
             ContactController.GetContactById();
             break;
         case MenuOptions.ViewAllContacts:
-            ContactController.GetContacts();
+            var contacts = ContactController.GetContacts();
+            UserInterface.ShowContactsTable(contacts);
             break;
         case MenuOptions.Quit:
             isAppRunning = false;
