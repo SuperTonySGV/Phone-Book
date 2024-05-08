@@ -27,7 +27,7 @@ static internal class UserInterface
 
     internal static void ShowContact(Contact contact)
     {
-        var panel = new Panel($@"Id: {contact.Id} Name: {contact.Name}");
+        var panel = new Panel($"Id: {contact.Id}\nName: {contact.Name}\nEmail: {contact.Email}\nPhone Number: {contact.PhoneNumber}");
         panel.Header = new PanelHeader("Contact Information");
         panel.Padding = new Padding(2, 2, 2, 2);
 
