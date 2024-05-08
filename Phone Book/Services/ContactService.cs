@@ -44,6 +44,12 @@ internal class ContactService
         UserInterface.ShowContact(contact);
     }
 
+    internal static void SendEmail()
+    {
+        var contact = GetContactOptionInput();
+        EmailService.SendEmail();
+    }
+
     internal static void GetContacts()
     {
         var contacts = ContactController.GetContacts();
@@ -55,7 +61,7 @@ internal class ContactService
         var contact = GetContactOptionInput();
         ContactController.DeleteContact(contact);
     }
-    private static Contact GetContactOptionInput()
+    public static Contact GetContactOptionInput()
     {
         var contacts = ContactController.GetContacts();
         var contactsArray = contacts.Select(x => x.Name).ToArray();

@@ -16,6 +16,7 @@ while (isAppRunning)
             MenuOptions.UpdateContact,
             MenuOptions.ViewContact,
             MenuOptions.ViewAllContacts,
+            MenuOptions.SendEmail,
             MenuOptions.Quit));
 
     switch(option)
@@ -35,6 +36,9 @@ while (isAppRunning)
         case MenuOptions.ViewAllContacts:
             ContactService.GetContacts();
             break;
+        case MenuOptions.SendEmail:
+            EmailService.SendEmail();
+            break;
         case MenuOptions.Quit:
             isAppRunning = false;
             break;
@@ -48,5 +52,6 @@ enum MenuOptions
     UpdateContact,
     ViewContact,
     ViewAllContacts,
+    SendEmail,
     Quit
 }
