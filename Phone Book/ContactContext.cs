@@ -11,4 +11,5 @@ internal class ContactContext : DbContext
         optionsBuilder.UseSqlServer(connectionString);
     }
     public DbSet<Contact> Contacts {  get; set; }
+    public DbSet<Category> Categories { get; set; }
 }
