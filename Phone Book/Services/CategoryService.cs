@@ -27,6 +27,12 @@ internal class CategoryService
         CategoryController.DeleteCategory(category);
     }
 
+    internal static void GetCategory()
+    {
+        var category = GetCategoryOptionInput();
+        UserInterface.ShowCategory(category);
+    }
+
     internal static void GetCategories()
     {
         var categories = CategoryController.GetCategories();
