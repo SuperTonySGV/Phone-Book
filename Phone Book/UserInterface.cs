@@ -17,10 +17,12 @@ static internal class UserInterface
                 .Title("What would you like to do?")
                 .AddChoices(
                     MenuOptions.AddContact,
+                    MenuOptions.AddCategory,
                     MenuOptions.DeleteContact,
                     MenuOptions.UpdateContact,
                     MenuOptions.ViewContact,
                     MenuOptions.ViewAllContacts,
+                    MenuOptions.ViewAllCategories,
                     MenuOptions.SendEmail,
                     MenuOptions.Quit));
 
@@ -28,6 +30,9 @@ static internal class UserInterface
             {
                 case MenuOptions.AddContact:
                     ContactService.InsertContact();
+                    break;
+                case MenuOptions.AddCategory:
+                    CategoryService.InsertCategory();
                     break;
                 case MenuOptions.DeleteContact:
                     ContactService.DeleteContact();
@@ -40,6 +45,9 @@ static internal class UserInterface
                     break;
                 case MenuOptions.ViewAllContacts:
                     ContactService.GetContacts();
+                    break;
+                case MenuOptions.ViewAllCategories:
+                    CategoryService.GetCategories();
                     break;
                 case MenuOptions.SendEmail:
                     EmailService.SendEmail();
@@ -61,6 +69,24 @@ static internal class UserInterface
         foreach (var contact in contacts)
         {
             table.AddRow(contact.Id.ToString(), contact.Name, contact.Email, contact.PhoneNumber);
+        }
+
+        AnsiConsole.Write(table);
+
+        Console.WriteLine("Press any key to continue");
+        Console.ReadLine();
+        Console.Clear();
+    }
+
+    static internal void ShowCategoryTable(List<Category> categories)
+    {
+        var table = new Table();
+        table.AddColumn("Id");
+        table.AddColumn("Name");
+
+        foreach (var category in categories)
+        {
+            table.AddRow(category.Id.ToString(), category.Name);
         }
 
         AnsiConsole.Write(table);
