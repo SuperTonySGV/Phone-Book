@@ -11,10 +11,12 @@ internal class ContactService
 {
     internal static void InsertContact()
     {
-        var name = AnsiConsole.Ask<string>("Contact name:");
-        var email = AnsiConsole.Ask<string>("Email:");
-        var phoneNumber = AnsiConsole.Ask<string>("Phone number:");
-        ContactController.AddContact(name, email, phoneNumber);
+        var contact = new Contact();
+        contact.Name = AnsiConsole.Ask<string>("Contact name:");
+        contact.Email = AnsiConsole.Ask<string>("Email:");
+        contact.PhoneNumber = AnsiConsole.Ask<string>("Phone number:");
+        contact.CategoryId = CategoryService.GetCategoryOptionInput();
+        ContactController.AddContact(contact);
     }
 
     internal static void UpdateContact()

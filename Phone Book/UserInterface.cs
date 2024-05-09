@@ -12,6 +12,7 @@ static internal class UserInterface
         var isAppRunning = true;
         while (isAppRunning)
         {
+            Console.Clear();
             var option = AnsiConsole.Prompt(
                 new SelectionPrompt<MenuOptions>()
                 .Title("What would you like to do?")
@@ -65,10 +66,11 @@ static internal class UserInterface
         table.AddColumn("Name");
         table.AddColumn("Email");
         table.AddColumn("Phone Number");
+        table.AddColumn("Category");
 
         foreach (var contact in contacts)
         {
-            table.AddRow(contact.Id.ToString(), contact.Name, contact.Email, contact.PhoneNumber);
+            table.AddRow(contact.Id.ToString(), contact.Name, contact.Email, contact.PhoneNumber, contact.Category.Name);
         }
 
         AnsiConsole.Write(table);
@@ -98,7 +100,7 @@ static internal class UserInterface
 
     internal static void ShowContact(Contact contact)
     {
-        var panel = new Panel($"Id: {contact.Id}\nName: {contact.Name}\nEmail: {contact.Email}\nPhone Number: {contact.PhoneNumber}");
+        var panel = new Panel($"Id: {contact.Id}\nName: {contact.Name}\nEmail: {contact.Email}\nPhone Number: {contact.PhoneNumber}\nCategory Name: {contact.Category.Name}");
         panel.Header = new PanelHeader("Contact Information");
         panel.Padding = new Padding(2, 2, 2, 2);
 

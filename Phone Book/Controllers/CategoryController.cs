@@ -17,4 +17,12 @@ internal class CategoryController
         var categories = db.Category.ToList();
         return categories;
     }
+
+    internal static int GetCategoryById(int id)
+    {
+        using var db = new ContactContext();
+        var category = db.Category.SingleOrDefault(x => x.Id == id);
+
+        return category.Id;
+    }
 }
