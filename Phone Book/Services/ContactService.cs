@@ -15,28 +15,29 @@ internal class ContactService
         contact.Name = AnsiConsole.Ask<string>("Contact name:");
         contact.Email = AnsiConsole.Ask<string>("Email:");
         contact.PhoneNumber = AnsiConsole.Ask<string>("Phone number:");
-        contact.CategoryId = CategoryService.GetCategoryOptionInput();
+        contact.CategoryId = CategoryService.GetCategoryOptionInput().Id;
         ContactController.AddContact(contact);
     }
 
     internal static void UpdateContact()
     {
         var contact = GetContactOptionInput();
-        contact.Name = AnsiConsole.Ask<string>("What is your new name?");
-        string email = AnsiConsole.Ask<string>("What is your new email?");
+        contact.Name = AnsiConsole.Confirm("Update name?") ? AnsiConsole.Ask<string>("What is your new name?") : contact.Name;
+        string email = AnsiConsole.Confirm("Update email?") ? AnsiConsole.Ask<string>("What is your new email?") : contact.Email;
         while (!ValidationUtilities.IsValidEmail(email))
         {
             AnsiConsole.Write(new Markup("[bold red]Your email address is invalid. Format should be someemail@email.com[/]\n"));
             email = AnsiConsole.Ask<string>("What is your new email?");
         }
         contact.Email = email;
-        string phoneNumber = AnsiConsole.Ask<string>("What is your new phone number?");
+        string phoneNumber = AnsiConsole.Confirm("Update phone number?") ? AnsiConsole.Ask<string>("What is your new phone number?") : contact.PhoneNumber;
         while (!ValidationUtilities.IsValidPhone(phoneNumber))
         {
             AnsiConsole.Write(new Markup("[bold red]Your phone number is invalid. Format should be ###-###-#### or ##########[/]\n"));
             phoneNumber = AnsiConsole.Ask<string>("What is your new phone number?");
         }
         contact.PhoneNumber = phoneNumber;
+        contact.Category = AnsiConsole.Confirm("Update category?") ? CategoryService.GetCategoryOptionInput() : contact.Category;
         ContactController.UpdateContact(contact);
     }
 

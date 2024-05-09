@@ -11,6 +11,13 @@ internal class CategoryController
         db.SaveChanges();
     }
 
+    internal static void DeleteCategory(Category category)
+    {
+        using var db = new ContactContext();
+        db.Remove(category);
+        db.SaveChanges();
+    }
+
     internal static List<Category> GetCategories()
     {
         using var db = new ContactContext();
@@ -24,5 +31,12 @@ internal class CategoryController
         var category = db.Category.SingleOrDefault(x => x.Id == id);
 
         return category.Id;
+    }
+
+    internal static void UpdateCategory(Category category)
+    {
+        using var db = new ContactContext();
+        db.Update(category);
+        db.SaveChanges();
     }
 }

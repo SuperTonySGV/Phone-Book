@@ -20,7 +20,9 @@ static internal class UserInterface
                     MenuOptions.AddContact,
                     MenuOptions.AddCategory,
                     MenuOptions.DeleteContact,
+                    MenuOptions.DeleteCategory,
                     MenuOptions.UpdateContact,
+                    MenuOptions.UpdateCategory,
                     MenuOptions.ViewContact,
                     MenuOptions.ViewAllContacts,
                     MenuOptions.ViewAllCategories,
@@ -38,8 +40,14 @@ static internal class UserInterface
                 case MenuOptions.DeleteContact:
                     ContactService.DeleteContact();
                     break;
+                case MenuOptions.DeleteCategory:
+                    CategoryService.DeleteCategory();
+                    break;
                 case MenuOptions.UpdateContact:
                     ContactService.UpdateContact();
+                    break;
+                case MenuOptions.UpdateCategory:
+                    CategoryService.UpdateCategory();
                     break;
                 case MenuOptions.ViewContact:
                     ContactService.GetContact();
